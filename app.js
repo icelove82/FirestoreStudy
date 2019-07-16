@@ -31,6 +31,8 @@ function renderCafe(doc) {
 
 // getting data
 db.collection("cafes")
+  .where("name", ">", "A")
+  .orderBy("name")
   .get()
   .then(snapshot => {
     snapshot.docs.forEach(doc => {
